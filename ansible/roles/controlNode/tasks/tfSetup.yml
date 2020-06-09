@@ -1,0 +1,19 @@
+# Clone Git Repos
+# Author: Austin Potter
+# Date: 06/09/2020
+#
+#
+
+#- name: Download tf
+#  get_url:
+#    url: "{{ cn_tfURL }}"
+#    dest: "{{ cn_tfPkg }}"
+#  become: true
+
+- name: Unarchive tf.zip
+  unarchive:
+    src: "{{ cn_tfURL }}"
+    dest: /usr/local/bin/
+    remote_src: yes
+
+#End

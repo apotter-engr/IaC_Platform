@@ -1,0 +1,9 @@
+# Installs yum packages for IaC Control Node
+# Author: Austin Potter
+# Date: 06/09/2020
+
+- name: Install Yum Packages
+  yum:
+    name: "{{ cn_yumPkgs }}"
+    state: present
+  become: true

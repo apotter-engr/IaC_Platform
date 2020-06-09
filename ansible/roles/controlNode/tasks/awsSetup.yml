@@ -1,0 +1,32 @@
+# Clone Git Repos
+# Author: Austin Potter
+# Date: 06/09/2020
+#
+#
+
+- name: Unarchive aws.zip
+  unarchive:
+    src: "{{ cn_awsURL }}"
+    dest: "{{ cn_awsZip }}"
+    remote_src: yes
+
+- name: Install aws
+  shell: ./aws/install --update
+  become: true
+
+- name: create .aws dir
+  file:
+    path: ~/.aws
+    state: directory
+
+- name: Configure aws
+  template: 
+    src: ../files/config.j2
+    dest: .aws/config
+
+- name: Configure aws Credentials
+  template: 
+    src: ../files/credentials.j2
+    dest: .aws/credentials
+
+#End

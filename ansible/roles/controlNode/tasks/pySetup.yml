@@ -1,0 +1,13 @@
+# Upgrades Python to 3
+# Author: Austin Potter
+# Date: 06/09/2020
+#
+#
+- name: Set Python 3 as prefered version
+  shell: "sudo ln -fs /usr/bin/{{ cn_pyPkg }} /usr/bin/python"
+  become: true
+
+- name: Echo Python Version
+  shell: python -V
+
+#End

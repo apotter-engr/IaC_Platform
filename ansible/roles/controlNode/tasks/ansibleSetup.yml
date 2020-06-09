@@ -1,0 +1,24 @@
+# Upgrades Python to 3
+# Author: Austin Potter
+# Date: 06/09/2020
+#
+#
+- name: Get Ansible Latest 
+  shell: pip install --user ansible
+
+#- name: Add another bin dir to system-wide $PATH
+#copy:
+#  dest: /etc/profile.d/custom-path.sh
+#  content: 'PATH=$PATH:{{ cn_ansiblePath }}'
+
+#- name: Echo ansible Version
+#command: ansible --version
+
+#- name: Add become_method to ansible.cfg
+#  lineinfile:
+#    path: ~/grs/configuration/ansible.cfg
+#    line: become_method= runas 
+#    insertafter: [Defaults]
+#  tags: grs_config
+
+#End

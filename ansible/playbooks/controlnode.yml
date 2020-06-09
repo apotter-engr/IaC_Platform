@@ -1,0 +1,11 @@
+#Configures IaC Control Node
+# Author: Austin Potter
+# Date: 06/09/2020
+
+- name: Configure IaC Control Node
+  hosts: controlNode
+  roles:
+    - controlNode
+  tags: Control_Node
+
+#End

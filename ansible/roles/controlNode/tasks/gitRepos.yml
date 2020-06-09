@@ -1,0 +1,16 @@
+# Clone Git Repos
+# Author: Austin Potter
+# Date: 06/09/2020
+#
+
+- name: Clone Git Repos
+  get_url:
+    url: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+    username: "{{ cn_di2ename }}"
+    password: "{{ cn_di2epass }}"
+  with_items:
+    - { repo: "https://bitbucket.di2e.net/scm/satopspi/grs.git", dest: ~/ }
+    - { repo: "https://bitbucket.di2e.net/scm/trex/trex_master.git", dest: ~/ }
+    - { repo: "https://bitbucket.di2e.net/scm/trex/thirdparty.git", dest: ~/ }
+#End

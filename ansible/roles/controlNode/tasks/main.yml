@@ -1,0 +1,58 @@
+#This Role will deploy an IaC control node
+#Author: Austin Potter
+#Date: 06/09/2020
+#
+#
+- assert:
+    that:
+      - cn_yumPkgs is defined
+      - cn_pyPkg is defined
+      - cn_gitRepos is defined
+      - cn_tfURL is defined
+      - cn_tfPkg is defined
+      - cn_awsURL is defined
+      - cn_awsZip is defined
+      - cn_awsRegion is defined
+      - cn_awsKey is defined
+      - cn_awsSecretKey is defined
+
+- name: Set python2
+  shell: ln -fs /usr/bin/python2 /usr/bin/python
+  become: true
+
+- name: Include yumPkg.yml
+  include: yumPkg.yml
+  tags: Control_Node
+
+- name: Include Python Setup
+  include: pySetup.yml
+  tags: Control_Node
+
+- name: Include pip download
+  include: pipSetup.yml
+  tags: Control_Node
+
+- name: Include TREx Git Repos
+  include: gitRepos.yml
+  tags: TREx_Control_Node
+
+- name: Install Ansible
+  include: ansibleSetup.yml
+  tags: Control_Node
+
+- name: Include Terraform
+  include: tfSetup.yml
+  tags: Control_Node
+
+- name: Set python2
+  shell: ln -fs /usr/bin/python2 /usr/bin/python
+  become: true
+
+- name: Include AWS CLI
+  include: awsSetup.yml
+  tags: Control_Node
+
+- name: Set python3
+  shell: ln -fs /usr/bin/python3 /usr/bin/python
+  become: true
+#End

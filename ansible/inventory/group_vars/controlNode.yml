@@ -1,0 +1,23 @@
+#Control Node Vars
+
+cn_yumPkgs:
+  - python3 
+  - git
+  - libselinux-python
+  - sshpass
+  - libselinux-devel
+cn_pyPkg: python3 
+cn_gitRepos:
+  - https://bitbucket.di2e.net/scm/satopspi/grs.git
+  - https://bitbucket.di2e.net/scm/trex/trex_master.git
+  - https://bitbucket.di2e.net/scm/trex/thirdparty.git
+cn_tfURL: https://releases.hashicorp.com/terraform/0.12.26/terraform_0.12.26_linux_amd64.zip
+cn_tfPkg: ~/terraform_0.12.26_linux_amd64.zip
+cn_awsURL: https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip
+cn_awsZip: ~/
+cn_awsRegion: us-gov-west-1
+cn_awsKey: "{{ vault_cn_awsKey }}"
+cn_awsSecretKey: "{{ vault_cn_awsSecretKey }}"
+cn_di2ename: austin.potter
+cn_di2epass: "{{ vault_cn_di2epass }}
+cn_ansiblePath: .local/bin"

@@ -1,0 +1,19 @@
+# Upgrades Python to 3
+# Author: Austin Potter
+# Date: 06/09/2020
+#
+#
+- name: Get get-pip.py
+  get_url: 
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: get-pip.py
+  become: true
+
+- name: Run get-pip
+  shell: python get-pip.py 
+  become: true
+
+- name: Echo pip Version
+  shell: pip --version
+
+#End
